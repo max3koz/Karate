@@ -39,8 +39,9 @@ while Worksheet_Competitor.cell(row=Qty_String, column=2).value != None:
 
     Qty_String += 1
 
-print(Person.items(), end='\n')
+# print(Person.items(), end='\n')
 print("Всего участников: " + str(len(Person)))
+print("====================================")
 
 Female_A_6_Kata = {}
 Female_B_6_Kata = {}
@@ -161,6 +162,8 @@ Male_B_35_Kumite = {}
 Dzunro_911 = {}
 Dzunro_1215 = {}
 Dzunro_16 = {}
+
+listGroups = [Female_A_6_Kata, Female_B_6_Kata, Female_A_6_Kumite, Female_B_6_Kumite, Female_A_7_Kata, Female_B_7_Kata, Female_A_7_Kumite, Female_B_7_Kumite, Female_A_8_Kata, Female_B_8_Kata, Female_A_8_Kumite, Female_B_8_Kumite, Female_A_9_Kata, Female_B_9_Kata, Female_A_9_Kumite, Female_B_9_Kumite, Female_A_1011_Kata, Female_B_1011_Kata,Female_A_1011_Kumite, Female_B_1011_Kumite, Female_A_1213_Kata, Female_B_1213_Kata,Female_A_1213_Kumite,Female_B_1213_Kumite, Female_A_1415_Kata, Female_B_1415_Kata, Female_A_1415_Kumite,Female_B_1415_Kumite, Female_A_1617_Kata, Female_B_1617_Kata, Female_A_1617_Kumite,Female_B_1617_Kumite, Female_A_18_Kata, Female_B_18_Kata, Female_A_18_Kumite, Female_B_18_Kumite, Male_A_5_Kata, Male_B_5_Kata, Male_A_5_Kumite, Male_B_5_Kumite, Male_A_6_Kata, Male_B_6_Kata, Male_A_6_Kumite, Male_B_6_Kumite, Male_A_6_Kumite_22,Male_B_6_Kumite_22, Male_A_7_Kata, Male_B_7_Kata, Male_A_7_Kumite, Male_B_7_Kumite, Male_A_7_Kumite_25, Male_B_7_Kumite_25, Male_A_8_Kata, Male_B_8_Kata, Male_A_8_Kumite, Male_B_8_Kumite, Male_A_8_Kumite_28,Male_B_8_Kumite_28, Male_A_9_Kata, Male_B_9_Kata, Male_A_9_Kumite, Male_B_9_Kumite, Male_A_9_Kumite_30, Male_B_9_Kumite_30, Male_A_1011_Kata, Male_B_1011_Kata, Male_A_1011_Kumite, Male_B_1011_Kumite,Male_A_1011_Kumite_37, Male_B_1011_Kumite_37, Male_A_1213_Kata, Male_B_1213_Kata, Male_A_1213_Kumite, Male_B_1213_Kumite, Male_A_1213_Kumite_46, Male_B_1213_Kumite_46, Male_A_1415_Kata, Male_B_1415_Kata,Male_A_1415_Kumite, Male_B_1415_Kumite, Male_A_1415_Kumite_60, Male_B_1415_Kumite_60, Male_A_1617_Kata, Male_B_1617_Kata, Male_A_1617_Kumite, Male_B_1617_Kumite, Male_A_1617_Kumite_68, Male_B_1617_Kumite_68, Male_A_18_Kata, Male_B_18_Kata, Male_A_18_Kumite, Male_B_18_Kumite, Male_A_35_Kata, Male_B_35_Kata, Male_A_35_Kumite, Male_B_35_Kumite, Dzunro_911, Dzunro_1215, Dzunro_16]
 
 for i in range(len(Person)):
 
@@ -467,8 +470,8 @@ for i in range(len(Person)):
     if Age >= 16 and Dzunro != "":
         Dzunro_16[i] = Person[i]
 
-for key in Female_A_6_Kata.keys():
-    print("%s -> %s" % (key, Female_A_6_Kata[key]))
+# for key in Female_A_6_Kata.keys():
+#     print("%s -> %s" % (key, Female_A_6_Kata[key]))
 
 # Создание .xls файлов с данными после парсинга
 #
@@ -1463,7 +1466,13 @@ Person[Qty_String] = {'id': Qty_String, 'DataPerson' : {'name':NamePerson, 'sex'
 def participant_print(participant_list_str,
                       participant_list):  # передаем название списка участников в виде строки и ссылку на сам словарь с участниками
     data = re.split('_', participant_list_str)  # ['Femail', 'A', '6', 'Kata']
-    if data[0] == 'Female':
+    if data[0] == 'Dzunro':
+        data[0] = 'Джуниор'
+        print(data[0] + " группа " + data[1])
+        print("Кол-во участников: " + str(len(participant_list)))
+        print(participant_list)
+        return
+    elif data[0] == 'Female':
         data[0] = 'Женская'
     elif data[0] == 'Male':
         data[0] = 'Мужская'
@@ -1473,16 +1482,14 @@ def participant_print(participant_list_str,
     print("====================================")
 
 # передаем название списка участников в виде строки и ссылку на сам словарь с участниками
-participant_print('Female_A_9_Kata', Female_A_9_Kata)
+# participant_print('Dzunro_911', Dzunro_911)
 
 
 # функция создания excel файла для каждой группы участников
 # передаем список участников и название файла, куда сохранить результаты
 def create_olimp_list(list_competitors, save_name):
-    Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-
-    # Workbook_Competitor = openpyxl.load_workbook(file_name)
-    sheet = Workbook_Competitor['Вставка']
+    wb = openpyxl.load_workbook(Name_Workbook_Competitor)
+    sheet = wb['Вставка']
 
     if len(list_competitors) == 0:
         print("Участники в этой категории отсутствуют")
@@ -1490,6 +1497,7 @@ def create_olimp_list(list_competitors, save_name):
         print("Всего " + str(len(list_competitors)) + " участников в группе.")
         j = 2
         for key in list_competitors:
+            # print (str(key))
             cell = 'C' + str(j)
             print(Person[key]['DataPerson']['name'])
             sheet[cell] = Person[key]['DataPerson']['name']
@@ -1504,9 +1512,23 @@ def create_olimp_list(list_competitors, save_name):
             cell = 'G' + str(j)
             sheet[cell] = Person[key]['DataPerson']['coach']
             j += 1
-        Workbook_Competitor.save(save_name + '.xlsx')
+
+        wb.save(save_name + '.xlsx')
     print("Готово !")
 
 
 # передаем список участников и название файла, куда сохранить результаты
-create_olimp_list(Female_A_9_Kata, 'Saved_96')
+# create_olimp_list(Dzunro_911, 'Dzunro_911')
+
+
+# надо завернуть кусок кода ниже в отдельную функцию
+# def create_all_olimp_list():
+a = 1
+for j in range(len(listGroups)):
+    if len(listGroups[j]) > 0:
+        # print(str(a)+") " + next((k for k, v in locals().items() if id(listGroups[j]) == id(v))))
+        create_olimp_list(listGroups[j], next((k for k, v in locals().items() if id(listGroups[j]) == id(v))))
+        a += 1
+#     print("опачки")
+
+# create_all_olimp_list()
