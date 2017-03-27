@@ -1,4 +1,5 @@
 import openpyxl
+import re
 
 print("Введите название файла со список участников, без расширения файла:", )
 # Name_Workbook_Competitor = input() + ".xls"
@@ -7,7 +8,7 @@ Name_Workbook_Competitor = 'Test.xlsx'
 print(Name_Workbook_Competitor)
 
 Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-Worksheet_Competitor = Workbook_Competitor['Участники 1']
+Worksheet_Competitor = Workbook_Competitor['Участники']
 
 # Выбор участников соревнований по видам соревнований
 Person = {}
@@ -470,986 +471,986 @@ for key in Female_A_6_Kata.keys():
     print("%s -> %s" % (key, Female_A_6_Kata[key]))
 
 # Создание .xls файлов с данными после парсинга
-
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_6_Kata))
-if len(Female_A_6_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_6_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_6_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_6_Kata))
-if len(Female_B_6_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_6_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_6_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_6_Kumite))
-if len(Female_A_6_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_6_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_6_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_6_Kumite))
-if len(Female_A_6_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_6_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_6_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_7_Kata))
-if len(Female_A_7_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_7_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_7_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_7_Kata))
-if len(Female_B_7_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_7_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_7_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_7_Kumite))
-if len(Female_A_7_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_7_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_7_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_7_Kumite))
-if len(Female_B_7_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_7_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_7_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_8_Kata))
-if len(Female_A_8_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_8_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_8_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_8_Kata))
-if len(Female_B_8_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_8_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_8_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_8_Kumite))
-if len(Female_A_8_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_8_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_8_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_8_Kumite))
-if len(Female_B_8_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_8_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_8_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_9_Kata))
-if len(Female_A_9_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_9_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_9_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_9_Kata))
-if len(Female_B_9_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_9_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_9_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_9_Kumite))
-if len(Female_A_9_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_9_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_9_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_9_Kumite))
-if len(Female_B_9_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_9_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_9_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1011_Kata))
-if len(Female_A_1011_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1011_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1011_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1011_Kata))
-if len(Female_B_1011_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1011_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1011_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1011_Kumite))
-if len(Female_A_1011_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1011_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1011_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1011_Kumite))
-if len(Female_B_1011_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1011_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1011_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1213_Kata))
-if len(Female_A_1213_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1213_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1213_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1213_Kata))
-if len(Female_B_1213_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1213_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1213_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1213_Kumite))
-if len(Female_A_1213_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1213_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1213_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1213_Kumite))
-if len(Female_B_1213_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1213_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1213_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1415_Kata))
-if len(Female_A_1415_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1415_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1415_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1415_Kata))
-if len(Female_B_1415_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1415_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1415_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1415_Kumite))
-if len(Female_A_1415_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1415_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1415_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1415_Kumite))
-if len(Female_B_1415_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1415_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1415_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1617_Kata))
-if len(Female_A_1617_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1617_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1617_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1617_Kata))
-if len(Female_B_1617_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1617_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1617_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_1617_Kumite))
-if len(Female_A_1617_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_1617_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_1617_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_1617_Kumite))
-if len(Female_B_1617_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_1617_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_1617_kumite.xlsx')
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_18_Kata))
-if len(Female_A_18_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_18_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_18_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_18_Kata))
-if len(Female_B_18_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_18_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_18_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_A_18_Kumite))
-if len(Female_A_18_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_A_18_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_A_18_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Female_B_18_Kumite))
-if len(Female_B_18_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Female_B_18_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Female_B_18_kumite.xlsx')
-print(" Готово")
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Male_A_5_Kata))
-if len(Male_A_5_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Male_A_5_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Male_A_5_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Male_B_5_Kata))
-if len(Male_B_5_Kata) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Male_B_5_Kata:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Male_B_5_kata.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Male_A_5_Kumite))
-if len(Male_A_5_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Male_A_5_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Male_A_5_kumite.xlsx')
-
-Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
-sheet = Workbook_Competitor['Вставка']
-print(len(Male_B_5_Kumite))
-if len(Male_B_5_Kumite) == 0:
-    print("Участники в этой категории отсутствуют")
-else:
-    i=0
-    for key in Male_B_5_Kumite:
-        cell = 'C' + str(i + 2)
-        print(Person[key]['DataPerson']['name'])
-        sheet[cell] = Person[key]['DataPerson']['name']
-        cell = 'B' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['team']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['birthday']
-        cell = 'E' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['KuDan']
-        cell = 'D' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['sportCategory']
-        cell = 'G' + str(i + 2)
-        sheet[cell] = Person[key]['DataPerson']['coach']
-        i += 1
-    Workbook_Competitor.save('Male_B_5_kumite.xlsx')
-print(" Готово")
+#
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_6_Kata))
+# if len(Female_A_6_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_6_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_6_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_6_Kata))
+# if len(Female_B_6_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_6_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_6_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_6_Kumite))
+# if len(Female_A_6_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_6_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_6_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_6_Kumite))
+# if len(Female_A_6_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_6_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_6_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_7_Kata))
+# if len(Female_A_7_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_7_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_7_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_7_Kata))
+# if len(Female_B_7_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_7_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_7_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_7_Kumite))
+# if len(Female_A_7_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_7_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_7_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_7_Kumite))
+# if len(Female_B_7_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_7_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_7_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_8_Kata))
+# if len(Female_A_8_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_8_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_8_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_8_Kata))
+# if len(Female_B_8_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_8_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_8_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_8_Kumite))
+# if len(Female_A_8_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_8_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_8_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_8_Kumite))
+# if len(Female_B_8_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_8_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_8_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_9_Kata))
+# if len(Female_A_9_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_9_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_9_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_9_Kata))
+# if len(Female_B_9_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_9_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_9_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_9_Kumite))
+# if len(Female_A_9_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_9_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_9_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_9_Kumite))
+# if len(Female_B_9_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_9_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_9_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1011_Kata))
+# if len(Female_A_1011_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1011_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1011_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1011_Kata))
+# if len(Female_B_1011_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1011_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1011_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1011_Kumite))
+# if len(Female_A_1011_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1011_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1011_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1011_Kumite))
+# if len(Female_B_1011_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1011_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1011_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1213_Kata))
+# if len(Female_A_1213_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1213_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1213_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1213_Kata))
+# if len(Female_B_1213_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1213_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1213_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1213_Kumite))
+# if len(Female_A_1213_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1213_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1213_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1213_Kumite))
+# if len(Female_B_1213_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1213_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1213_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1415_Kata))
+# if len(Female_A_1415_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1415_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1415_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1415_Kata))
+# if len(Female_B_1415_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1415_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1415_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1415_Kumite))
+# if len(Female_A_1415_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1415_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1415_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1415_Kumite))
+# if len(Female_B_1415_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1415_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1415_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1617_Kata))
+# if len(Female_A_1617_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1617_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1617_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1617_Kata))
+# if len(Female_B_1617_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1617_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1617_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_1617_Kumite))
+# if len(Female_A_1617_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_1617_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_1617_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_1617_Kumite))
+# if len(Female_B_1617_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_1617_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_1617_kumite.xlsx')
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_18_Kata))
+# if len(Female_A_18_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_18_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_18_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_18_Kata))
+# if len(Female_B_18_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_18_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_18_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_A_18_Kumite))
+# if len(Female_A_18_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_A_18_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_A_18_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Female_B_18_Kumite))
+# if len(Female_B_18_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Female_B_18_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Female_B_18_kumite.xlsx')
+# print(" Готово")
+#
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Male_A_5_Kata))
+# if len(Male_A_5_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Male_A_5_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Male_A_5_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Male_B_5_Kata))
+# if len(Male_B_5_Kata) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Male_B_5_Kata:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Male_B_5_kata.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Male_A_5_Kumite))
+# if len(Male_A_5_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Male_A_5_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Male_A_5_kumite.xlsx')
+#
+# Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+# sheet = Workbook_Competitor['Вставка']
+# print(len(Male_B_5_Kumite))
+# if len(Male_B_5_Kumite) == 0:
+#     print("Участники в этой категории отсутствуют")
+# else:
+#     i=0
+#     for key in Male_B_5_Kumite:
+#         cell = 'C' + str(i + 2)
+#         print(Person[key]['DataPerson']['name'])
+#         sheet[cell] = Person[key]['DataPerson']['name']
+#         cell = 'B' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['team']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['birthday']
+#         cell = 'E' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['KuDan']
+#         cell = 'D' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['sportCategory']
+#         cell = 'G' + str(i + 2)
+#         sheet[cell] = Person[key]['DataPerson']['coach']
+#         i += 1
+#     Workbook_Competitor.save('Male_B_5_kumite.xlsx')
+# print(" Готово")
 
 '''
 Person[Qty_String] = {'id': Qty_String, 'DataPerson' : {'name':NamePerson, 'sex':SexPerson.lower(), 'group':GroupPerson,
@@ -1457,3 +1458,55 @@ Person[Qty_String] = {'id': Qty_String, 'DataPerson' : {'name':NamePerson, 'sex'
                        'kumite':KumitePerson.lower(), 'team':TeamPerson, 'birthday':BirthdayPerson, 'KuDan':KuDanPerson,
                        'sportCategory':SportCategoryPerson, 'coach':CoachPerson}}
 '''
+
+# функция печати кол-ва участников указанной группы
+def participant_print(participant_list_str,
+                      participant_list):  # передаем название списка участников в виде строки и ссылку на сам словарь с участниками
+    data = re.split('_', participant_list_str)  # ['Femail', 'A', '6', 'Kata']
+    if data[0] == 'Female':
+        data[0] = 'Женская'
+    elif data[0] == 'Male':
+        data[0] = 'Мужская'
+    print(data[0] + " группа " + data[1] + " " + data[2] + " " + data[3])
+    print("Кол-во участников: " + str(len(participant_list)))
+    print(participant_list)
+    print("====================================")
+
+# передаем название списка участников в виде строки и ссылку на сам словарь с участниками
+participant_print('Female_A_9_Kata', Female_A_9_Kata)
+
+
+# функция создания excel файла для каждой группы участников
+# передаем список участников и название файла, куда сохранить результаты
+def create_olimp_list(list_competitors, save_name):
+    Workbook_Competitor = openpyxl.load_workbook(Name_Workbook_Competitor)
+
+    # Workbook_Competitor = openpyxl.load_workbook(file_name)
+    sheet = Workbook_Competitor['Вставка']
+
+    if len(list_competitors) == 0:
+        print("Участники в этой категории отсутствуют")
+    else:
+        print("Всего " + str(len(list_competitors)) + " участников в группе.")
+        j = 2
+        for key in list_competitors:
+            cell = 'C' + str(j)
+            print(Person[key]['DataPerson']['name'])
+            sheet[cell] = Person[key]['DataPerson']['name']
+            cell = 'B' + str(j)
+            sheet[cell] = Person[key]['DataPerson']['team']
+            cell = 'D' + str(j)
+            sheet[cell] = Person[key]['DataPerson']['birthday']
+            cell = 'E' + str(j)
+            sheet[cell] = Person[key]['DataPerson']['KuDan']
+            cell = 'D' + str(j)
+            sheet[cell] = Person[key]['DataPerson']['sportCategory']
+            cell = 'G' + str(j)
+            sheet[cell] = Person[key]['DataPerson']['coach']
+            j += 1
+        Workbook_Competitor.save(save_name + '.xlsx')
+    print("Готово !")
+
+
+# передаем список участников и название файла, куда сохранить результаты
+create_olimp_list(Female_A_9_Kata, 'Saved_96')
