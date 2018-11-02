@@ -498,7 +498,7 @@ def create_olimp_list(list_competitors, save_name):
         if data[3] == 'Kata':
             data[3] = 'Ката'
         elif data[3] == 'Kumite':
-            data[3] = 'Кумитэ'
+            data[3] = 'Кумiте'
         if data[3] == 'Koten':
             data[3] = 'Котен'
 
@@ -544,15 +544,10 @@ def create_olimp_list(list_competitors, save_name):
 # передаем список участников и название файла, куда сохранить результаты
 # create_olimp_list(Male_A_1415_Kata, 'test')
 
-
-# надо завернуть кусок кода ниже в отдельную функцию
-# def create_all_olimp_list():
 a = 1
 for j in range(len(listGroups)):
     if len(listGroups[j]) > 0:
          # print(str(a)+") " + next((k for k, v in locals().items() if id(listGroups[j]) == id(v))))
          create_olimp_list(listGroups[j], next((k for k, v in locals().items() if id(listGroups[j]) == id(v))))
          a += 1
-#     print("опачки")
-
 # create_all_olimp_list()
